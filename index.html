@@ -118,18 +118,18 @@
             z-index: 2;
             box-shadow: 0 0 60px var(--primary-glow);
         }
-        /* TV Appearance (Top Right) */
+        /* TV Appearance (Top Right) - INCREASED SIZE */
         .highlight-pic-1 {
-            width: 140px; height: 140px;
-            top: 0; right: 0;
+            width: 200px; height: 200px; /* Increased from 140px */
+            top: -30px; right: -30px; /* Adjusted position for larger size */
             z-index: 1;
             animation: float 6s ease-in-out infinite;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-        /* Award (Bottom Left) */
+        /* Award (Bottom Left) - INCREASED SIZE */
         .highlight-pic-2 {
-            width: 120px; height: 120px;
-            bottom: 20px; left: 0;
+            width: 180px; height: 180px; /* Increased from 120px */
+            bottom: -20px; left: -20px; /* Adjusted position for larger size */
             z-index: 3;
             animation: float 7s ease-in-out infinite reverse;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -191,10 +191,10 @@
             .hero-text { max-width: 100%; }
             .hero-text h1 { font-size: 2.5rem; }
             
-            .hero-collage { width: 320px; height: 320px; }
+            .hero-collage { width: 350px; height: 350px; } /* Slightly larger container for mobile */
             .main-pic { width: 200px; height: 200px; }
-            .highlight-pic-1 { width: 110px; height: 110px; }
-            .highlight-pic-2 { width: 100px; height: 100px; }
+            .highlight-pic-1 { width: 160px; height: 160px; top: -20px; right: -20px; } /* Increased from 110px */
+            .highlight-pic-2 { width: 150px; height: 150px; bottom: -10px; left: -10px; } /* Increased from 100px */
 
             .split-section { grid-template-columns: 1fr; }
             .nav-links { display: none; }
@@ -245,7 +245,7 @@
                      alt="TV Appearance" 
                      class="collage-img highlight-pic-1">
 
-                <img src="me.png" 
+                <img src="profile.jpg" 
                      onerror="this.src='https://placehold.co/260x260/2563eb/FFF?text=Me'" 
                      alt="Mirza Abdullah" 
                      class="collage-img main-pic">
