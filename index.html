@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirza Abdullah Tariq | AI & IT Professional</title>
+    <title>Mirza Abdullah Tariq | Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #3b82f6;       /* Brighter Blue */
-            --primary-dark: #2563eb;
+            --primary: #3b82f6;       /* Blue */
+            --primary-glow: rgba(59, 130, 246, 0.5);
             --accent: #06b6d4;        /* Cyan */
             --bg-dark: #0f172a;       /* Slate 900 */
             --bg-card: #1e293b;       /* Slate 800 */
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --glass: rgba(30, 41, 59, 0.7);
-            --border: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,206 +28,120 @@
         
         body { 
             background-color: var(--bg-dark);
+            /* Subtle mesh gradient background */
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
             color: var(--text-main); 
             font-family: 'Inter', sans-serif; 
             line-height: 1.6; 
-            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
         /* --- Animations --- */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Navigation --- */
+        /* --- Layout --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+
+        /* --- Nav --- */
         nav {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; letter-spacing: -0.5px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; }
         .logo span { color: var(--primary); }
-        
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: 0.3s; font-size: 0.95rem; }
-        .nav-links a:hover { color: white; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
         .mobile-menu-btn { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* --- Hero Section --- */
-        .hero {
-            padding: 8rem 0 6rem;
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            min-height: 90vh;
-        }
+        /* --- Hero --- */
+        .hero { padding: 8rem 0 6rem; display: flex; align-items: center; gap: 4rem; min-height: 85vh; }
         .hero-text { flex: 1; }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(37, 99, 235, 0.15);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(37, 99, 235, 0.3);
-        }
-        .hero-text h1 { 
-            font-size: 3.8rem; 
-            line-height: 1.1; 
-            margin-bottom: 1.5rem; 
-            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        .hero-text p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem; }
+        .tagline { display: inline-block; padding: 0.5rem 1rem; background: rgba(37, 99, 235, 0.1); color: var(--primary); border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid rgba(37, 99, 235, 0.3); }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 650px; }
         
         .hero-img-container { flex: 1; display: flex; justify-content: center; position: relative; }
-        .hero-img { 
-            width: 380px; 
-            height: 380px; 
-            border-radius: 40px; 
-            object-fit: cover; 
-            border: 1px solid var(--border);
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.4);
-            z-index: 2;
-        }
-        /* Decorative circle behind image */
-        .hero-img-container::before {
-            content: ''; position: absolute; width: 400px; height: 400px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            opacity: 0.2; filter: blur(40px); z-index: 1;
-        }
+        .hero-img { width: 350px; height: 350px; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-card); box-shadow: 0 0 50px var(--primary-glow); z-index: 2; }
 
-        .btn-group { display: flex; gap: 1rem; }
-        .btn { padding: 0.9rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-        .btn-primary { background: var(--primary-dark); color: white; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3); }
-        .btn-primary:hover { background: var(--primary); transform: translateY(-3px); }
-        .btn-outline { background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: white; }
-        .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: white; }
+        .btn { padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 20px -10px var(--primary); }
+        .btn-outline { border: 1px solid var(--border); background: rgba(255,255,255,0.05); }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
-        /* --- Sections --- */
-        section { padding: 6rem 0; }
-        .section-header { margin-bottom: 4rem; text-align: center; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
-        .section-header p { color: var(--text-muted); }
-
-        /* --- RICH LINK PREVIEW CARDS (Projects & Awards) --- */
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        /* --- Social Timeline (Highlights) --- */
+        .section-title { font-size: 2.2rem; margin-bottom: 3rem; text-align: center; }
         
-        .preview-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .preview-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
-        
-        .card-icon { 
-            width: 50px; height: 50px; background: rgba(37, 99, 235, 0.1); 
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.5rem; color: var(--primary); font-size: 1.5rem;
-        }
-        .preview-card h3 { color: white; font-size: 1.25rem; margin-bottom: 0.5rem; }
-        .preview-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
-        
-        .link-indicator { 
-            margin-top: auto; 
-            font-size: 0.85rem; 
-            color: var(--accent); 
-            font-weight: 600; 
-            display: flex; align-items: center; gap: 0.5rem; 
-        }
-        .link-indicator i { transition: transform 0.3s; }
-        .preview-card:hover .link-indicator i { transform: translateX(5px); }
-
-        /* --- SOCIAL HIGHLIGHTS (LinkedIn Style) --- */
         .timeline-container { position: relative; max-width: 800px; margin: 0 auto; }
-        .timeline-line { 
-            position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; 
-            background: linear-gradient(to bottom, var(--primary), transparent); 
-            transform: translateX(-50%); 
-        }
+        .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), transparent); transform: translateX(-50%); }
+        .year-badge { background: var(--primary); color: white; padding: 0.4rem 1.2rem; border-radius: 50px; font-weight: 700; position: relative; left: 50%; transform: translateX(-50%); display: inline-block; margin: 2rem 0; z-index: 2; }
         
-        .year-marker {
-            background: var(--primary); color: white; padding: 0.5rem 1.5rem;
-            border-radius: 50px; font-weight: 700; display: inline-block;
-            position: relative; left: 50%; transform: translateX(-50%);
-            margin: 2rem 0; z-index: 2; box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
-        }
-
-        .social-card {
-            background: white; /* LinkedIn is light usually, but let's keep dark theme */
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            position: relative;
-            z-index: 2;
-            width: 90%;
-            margin-left: auto; margin-right: auto;
-        }
-
-        /* Mock LinkedIn Header */
+        .social-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; position: relative; z-index: 2; transition: transform 0.3s; }
+        .social-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         .social-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .social-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-        .social-meta h4 { font-size: 1rem; color: white; }
-        .social-meta span { font-size: 0.8rem; color: var(--text-muted); display: block; }
-        
-        .social-body { color: #e2e8f0; font-size: 0.95rem; margin-bottom: 1rem; }
-        .social-body a { color: var(--primary); text-decoration: none; }
-        
-        /* Mock LinkedIn Footer */
-        .social-footer { 
-            border-top: 1px solid var(--border); padding-top: 0.8rem; 
-            display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem;
-        }
-        .social-footer div { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: 0.2s; }
-        .social-footer div:hover { color: var(--primary); }
+        .social-avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; }
+        .social-meta h4 { font-size: 1rem; margin: 0; }
+        .social-meta span { font-size: 0.8rem; color: var(--text-muted); }
+        .social-body { font-size: 0.95rem; color: #e2e8f0; margin-bottom: 1rem; }
+        .social-footer { border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; gap: 1rem; color: var(--text-muted); font-size: 0.85rem; }
 
-        /* --- Footer --- */
-        footer { 
-            padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); 
-            background: #020617;
-        }
-        .social-icons a { 
-            color: var(--text-muted); font-size: 1.5rem; margin: 0 1rem; 
-            transition: 0.3s; 
-        }
-        .social-icons a:hover { color: white; transform: scale(1.1); }
+        /* --- Experience Timeline --- */
+        .exp-grid { display: grid; gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .exp-item { background: rgba(30, 41, 59, 0.4); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 8px 8px 0; }
+        .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem; }
+        .exp-role { font-size: 1.2rem; font-weight: 700; color: white; }
+        .exp-company { color: var(--primary); font-weight: 500; }
+        .exp-date { font-size: 0.9rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 2px 10px; border-radius: 12px; }
+        .exp-list { padding-left: 1.2rem; margin-top: 1rem; color: var(--text-muted); list-style-type: disc; }
+        .exp-list li { margin-bottom: 0.5rem; }
 
-        /* Mobile Adjustments */
+        /* --- Projects Grid --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+        .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; transition: 0.3s; height: 100%; }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .folder-icon { color: var(--primary); font-size: 1.8rem; }
+        .project-links a { color: var(--text-muted); font-size: 1.2rem; margin-left: 0.8rem; }
+        .project-links a:hover { color: white; }
+        .project-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: white; }
+        .project-desc { font-size: 0.9rem; color: var(--text-muted); flex-grow: 1; margin-bottom: 1rem; }
+        .project-date { font-size: 0.8rem; color: var(--accent); font-family: monospace; }
+
+        /* --- Skills & Education --- */
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .skill-group { margin-bottom: 2rem; }
+        .skill-group h3 { color: white; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .tag { background: rgba(37, 99, 235, 0.15); color: var(--primary); padding: 0.4rem 1rem; border-radius: 6px; font-size: 0.9rem; }
+        
+        .edu-item { margin-bottom: 1.5rem; }
+        .edu-item h4 { font-size: 1.1rem; color: white; margin-bottom: 0.2rem; }
+        .edu-item span { display: block; color: var(--text-muted); font-size: 0.95rem; }
+
+        /* --- Mobile --- */
         @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 5rem; gap: 3rem; }
-            .hero-text h1 { font-size: 2.8rem; }
-            .hero-img { width: 280px; height: 280px; }
-            .btn-group { justify-content: center; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 6rem; gap: 2rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .split-section { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
             .timeline-line { left: 20px; }
-            .year-marker { left: 20px; transform: none; }
-            .social-card { width: 100%; margin-left: 0; padding-left: 3rem; border: none; background: transparent; }
-            /* Simplified card on mobile */
-            .social-card { background: var(--bg-card); padding: 1.5rem; border: 1px solid var(--border); margin-left: 2rem; width: calc(100% - 2rem); }
+            .year-badge { left: 20px; transform: none; }
+            .social-card { margin-left: 2.5rem; width: calc(100% - 2.5rem); }
         }
     </style>
 </head>
@@ -239,9 +152,10 @@
             <a href="#" class="logo">Mirza<span>Abdullah</span></a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#projects">Portfolio</a>
                 <a href="#highlights">Highlights</a>
-                <a href="#contact">Contact</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
             </div>
             <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
         </div>
@@ -249,89 +163,176 @@
 
     <header class="hero container" id="about">
         <div class="hero-text fade-in">
-            <span class="hero-badge">Available for 2026 Research Opps</span>
-            <h1>Turning Data into <br>Intelligent Action.</h1>
-            <p>IT Professional & Hackathon Winner (1st/879 teams). I build AI-driven products, manage cross-functional teams, and solve complex problems.</p>
+            <span class="tagline">IT & AI-Focused Professional</span>
+            <h1>Mirza Abdullah Tariq</h1>
+            <p>
+                IT professional with 3+ years of experience across software development, AI-driven products, and technology-focused organizations. Proven performer in global hackathons, including securing 1st place out of 879 teams at the Trae AI IDE Zero Limits Hackathon.
+                <br><br>
+                Experienced in product execution, client engagement, and cross-functional collaboration, with a strong focus on building scalable, impact-driven solutions.
+            </p>
             <div class="btn-group">
-                <a href="#projects" class="btn btn-primary">See Portfolio</a>
-                <a href="https://www.linkedin.com/in/mirzaabdullaht" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> Let's Connect</a>
+                <a href="mailto:mirzaabdullaht@outlook.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
+                <a href="https://www.linkedin.com/in/mirzaabdullaht" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
         <div class="hero-img-container fade-in">
-            <img src="https://placehold.co/400x400/1e293b/white?text=Profile+Pic" alt="Mirza Abdullah" class="hero-img">
+            <img src="profile.jpg" onerror="this.src='https://placehold.co/400x400/1e293b/FFF?text=MA'" alt="Mirza Abdullah" class="hero-img">
         </div>
     </header>
 
     <section id="highlights">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Yearly Highlights</h2>
-                <p>A timeline of my professional journey and key milestones.</p>
-            </div>
-
+            <h2 class="section-title">Yearly Highlights & Honors</h2>
             <div class="timeline-container">
                 <div class="timeline-line"></div>
 
-                <div class="year-marker fade-in">2025</div>
-
-                <div class="social-card fade-in">
-                    <a href="https://www.linkedin.com/posts/mirzaabdullaht_hackathon-ai-firstplace-activity-7350703428618072065-qQW6" target="_blank" style="text-decoration:none;">
-                        <div class="social-header">
-                            <img src="https://placehold.co/50x50/2563eb/white?text=M" class="social-avatar" alt="Avatar">
-                            <div class="social-meta">
-                                <h4>Mirza Abdullah Tariq</h4>
-                                <span>1st Place Winner • TRAE AI IDE Hackathon</span>
-                            </div>
-                        </div>
-                        <div class="social-body">
-                            <p>🏆 <strong>We won!</strong> Thrilled to announce that my team "PathFinders" secured the 1st spot out of 879 international teams in the TRAE AI IDE Zero Limits Hackathon. We built an AI solution in just 48 hours...</p>
-                            <br>
-                            <span style="color:var(--primary)">#AI #Hackathon #Innovation #Winner</span>
-                        </div>
-                        <div class="social-footer">
-                            <div><i class="far fa-thumbs-up"></i> Like</div>
-                            <div><i class="far fa-comment"></i> Comment</div>
-                            <div style="margin-left:auto; color:var(--accent);">View Post <i class="fas fa-arrow-right"></i></div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="social-card fade-in">
-                    <a href="https://youtube.com/playlist?list=PLKOXcr0VPNXBsSq7qwXe0lNiixXYKYZgO&si=F9R2TWXwX4fP_7Uz" target="_blank" style="text-decoration:none;">
-                        <div class="social-header">
-                            <img src="https://placehold.co/50x50/2563eb/white?text=M" class="social-avatar" alt="Avatar">
-                            <div class="social-meta">
-                                <h4>Mirza Abdullah Tariq</h4>
-                                <span>Guest Speaker • PTV Home & HUM News</span>
-                            </div>
-                        </div>
-                        <div class="social-body">
-                            <p>📺 Honored to be invited on <strong>PTV Home</strong> and International channels to discuss the future of AI in Pakistan and our recent hackathon victory. Watch the full interview here.</p>
-                        </div>
-                        <div class="social-footer">
-                            <div><i class="far fa-thumbs-up"></i> Like</div>
-                            <div><i class="far fa-comment"></i> Comment</div>
-                            <div style="margin-left:auto; color:var(--accent);">Watch Video <i class="fas fa-play-circle"></i></div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="year-marker fade-in">2024</div>
+                <div class="year-badge fade-in">2025</div>
 
                 <div class="social-card fade-in">
                     <div class="social-header">
-                        <img src="https://placehold.co/50x50/2563eb/white?text=M" class="social-avatar" alt="Avatar">
+                        <div class="social-avatar">MA</div>
                         <div class="social-meta">
                             <h4>Mirza Abdullah Tariq</h4>
-                            <span>Aspire Leaders Program • Graduate</span>
+                            <span>1st Place • Trae AI IDE: Zero Limits Hackathon</span>
                         </div>
                     </div>
                     <div class="social-body">
-                        <p>🎓 Grateful to have completed the Aspire Leaders Program 2024! An incredible journey of leadership development and social impact learning.</p>
+                        🏆 <strong>1st Place out of 879 Teams!</strong><br>
+                        Led team "PathFinders" to victory in a 48-hour global hackathon. We built an AI solution that pushed the limits of the Trae IDE.
                     </div>
                     <div class="social-footer">
-                        <div><i class="far fa-thumbs-up"></i> Like</div>
+                        <a href="https://www.linkedin.com/posts/mirzaabdullaht_hackathon-ai-firstplace-activity-7350703428618072065-qQW6" target="_blank">View Post <i class="fas fa-external-link-alt"></i></a>
                     </div>
+                </div>
+
+                <div class="social-card fade-in">
+                    <div class="social-header">
+                        <div class="social-avatar">TV</div>
+                        <div class="social-meta">
+                            <h4>Media Appearances</h4>
+                            <span>PTV Home, HUM News & Islam Channel (UK)</span>
+                        </div>
+                    </div>
+                    <div class="social-body">
+                        📺 Featured on National and International TV Channels to discuss AI Innovation and our global hackathon success.
+                    </div>
+                    <div class="social-footer">
+                        <a href="https://youtube.com/playlist?list=PLKOXcr0VPNXBsSq7qwXe0lNiixXYKYZgO&si=F9R2TWXwX4fP_7Uz" target="_blank">Watch Clips <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="social-card fade-in">
+                    <div class="social-header">
+                        <div class="social-avatar">H</div>
+                        <div class="social-meta">
+                            <h4>Harvard University CS50</h4>
+                            <span>Puzzle Day 2025</span>
+                        </div>
+                    </div>
+                    <div class="social-body">
+                        🧩 Solved all CS50 Puzzle Day 2025 Challenges. A test of logic, problem-solving, and collaboration.
+                    </div>
+                    <div class="social-footer">
+                        <a href="https://certificates.cs50.io/e2ea048e-3ddc-4e7c-ae1c-e9de4712cca2.png" target="_blank">View Certificate <i class="fas fa-certificate"></i></a>
+                    </div>
+                </div>
+
+                <div class="year-badge fade-in">2024</div>
+
+                <div class="social-card fade-in">
+                    <div class="social-header">
+                        <div class="social-avatar">MA</div>
+                        <div class="social-meta">
+                            <h4>Hackathon Achievements</h4>
+                            <span>Silver Brick & Top 10 Finalist</span>
+                        </div>
+                    </div>
+                    <div class="social-body">
+                        🥈 <strong>Silver Brick Winner:</strong> Calico Fall ’24 (Top 25% Worldwide).<br>
+                        🚀 <strong>Top 10 Finalist:</strong> PakAngels Online Hackathon.
+                    </div>
+                    <div class="social-footer">
+                        <a href="https://drive.google.com/file/d/1hkulEMshlQzC5H2k_RB6thfa5Imqxtb_/view" target="_blank">Calico Cert</a> • 
+                        <a href="https://www.linkedin.com/posts/mirzaabdullaht_hackathon-learningjourney-ai-activity-7369846275447545857-Lqgh" target="_blank">PakAngels Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="exp-grid">
+
+                <div class="exp-item fade-in">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Python Django Developer</div>
+                            <div class="exp-company">Buildables (Remote)</div>
+                        </div>
+                        <div class="exp-date">Aug 2025 – Nov 2025</div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Built and maintained backend features using Django.</li>
+                        <li>Collaborated with engineers to deliver scalable web solutions.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item fade-in">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Project & Product Manager</div>
+                            <div class="exp-company">Bytewise Limited (Remote)</div>
+                        </div>
+                        <div class="exp-date">Jun 2024 – Sep 2024</div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Led product planning and execution across multiple development cycles.</li>
+                        <li>Coordinated roadmaps, timelines, and stakeholder communication.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item fade-in">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Account Executive</div>
+                            <div class="exp-company">Glowlogix (NSTP NUST)</div>
+                        </div>
+                        <div class="exp-date">Dec 2023 – Aug 2024</div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Managed B2B client relationships across international markets.</li>
+                        <li>Supported revenue growth through client acquisition and retention.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item fade-in">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Customer Support Representative</div>
+                            <div class="exp-company">SIT Digital Intl. (USA, Remote)</div>
+                        </div>
+                        <div class="exp-date">Oct 2021 – May 2023</div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Provided technical and customer support to US-based clients.</li>
+                        <li>Maintained high customer satisfaction and documentation standards.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item fade-in">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">IT Consultant</div>
+                            <div class="exp-company">PakGIS Engineering Consultants</div>
+                        </div>
+                        <div class="exp-date">Oct 2021 – May 2023</div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Conducted IT assessments and supported system implementations.</li>
+                    </ul>
                 </div>
 
             </div>
@@ -340,106 +341,210 @@
 
     <section id="projects">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Featured Projects</h2>
-                <p>Interactive previews. Click to view live demos or code.</p>
+            <h2 class="section-title">Projects & Global Hackathons</h2>
+            <div class="project-grid">
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-dna folder-icon"></i>
+                        <div class="project-links"><a href="https://huggingface.co/spaces/mirzaabdullaht/Bio" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">The Bioverse Explorer</h3>
+                    <p class="project-desc">Interactive platform for visualizing space biology datasets through intuitive, AI-assisted exploration.</p>
+                    <span class="project-date">Oct 2025</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-video folder-icon"></i>
+                        <div class="project-links"><a href="https://lablab.ai/event/raise-your-hack/fresh-team-vultr-track/streamlead-turning-passive-viewers-active" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">StreamLead</h3>
+                    <p class="project-desc">AI-powered livestream engagement tool using real-time audio processing, LLMs, and RAG for context-aware responses.</p>
+                    <span class="project-date">Jul 2025</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-briefcase folder-icon"></i>
+                        <div class="project-links"><a href="https://lablab.ai/event/code-craft-ai-x-dev-hackathon/pathfinders/access-jobs-ai-powered-job-recommendation-system" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">Access Jobs</h3>
+                    <p class="project-desc">AI-driven job matching platform leveraging resume parsing and skill extraction to improve job discovery efficiency.</p>
+                    <span class="project-date">Jun 2025</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fab fa-chrome folder-icon"></i>
+                        <div class="project-links"><a href="https://devpost.com/software/sparktab" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">SparkTab</h3>
+                    <p class="project-desc">Personalized productivity extension delivering AI-generated daily goals and habit-building insights.</p>
+                    <span class="project-date">Nov 2024</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-heart folder-icon"></i>
+                        <div class="project-links"><a href="https://devpost.com/software/sparktab" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">Teen Talk</h3>
+                    <p class="project-desc">AI-based mental health support platform providing emotional guidance, coping strategies, and resource access.</p>
+                    <span class="project-date">Nov 2024</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-globe folder-icon"></i>
+                        <div class="project-links"><a href="https://lablab.ai/event/replit-and-cursor-hackathon/flagship/flagglobe" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">FlagGlobe</h3>
+                    <p class="project-desc">Educational app offering instant country insights via names or flag emojis to enhance global awareness.</p>
+                    <span class="project-date">Oct 2024</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-child folder-icon"></i>
+                        <div class="project-links"><a href="https://learning-buddy-nine.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">LearnBuddy</h3>
+                    <p class="project-desc">Interactive AI learning tool designed to improve children’s grammar, spelling, and vocabulary.</p>
+                    <span class="project-date">Oct 2024</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-list-check folder-icon"></i>
+                        <div class="project-links"><a href="https://lablab.ai/event/ai-agents-hack-with-lablab-and-mindsdb/code-warrior/ai-daily-productivity-planner/" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">TalkTodo</h3>
+                    <p class="project-desc">AI-powered daily planner optimizing task prioritization, break scheduling, and time management.</p>
+                    <span class="project-date">Sep 2024</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-tags folder-icon"></i>
+                        <div class="project-links"><a href="https://www.youtube.com/watch?v=ODLacQAy4LA" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">Product Label Automation</h3>
+                    <p class="project-desc">AI-based solution automating product label content, descriptions, and branding suggestions for SMEs.</p>
+                    <span class="project-date">Aug 2024</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-building folder-icon"></i>
+                        <div class="project-links"><a href="https://gtcci.org/" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">MIS for GtCCI</h3>
+                    <p class="project-desc">Web and mobile MIS digitizing records, enabling virtual services, and improving operational efficiency.</p>
+                    <span class="project-date">Jan 2022 – May 2023</span>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-top">
+                        <i class="fas fa-bolt folder-icon"></i>
+                        <div class="project-links"><a href="https://mirzaabdullaht.blogspot.com/2019/04/wireless-power-transmission-system.html" target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                    </div>
+                    <h3 class="project-title">Wireless Power Transmission</h3>
+                    <p class="project-desc">Academic engineering project demonstrating wireless energy transfer using oscillating magnetic fields.</p>
+                    <span class="project-date">Dec 2018 – Jan 2019</span>
+                </div>
+
             </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container split-section">
             
-            <div class="grid-cards">
+            <div class="fade-in">
+                <div class="skill-group">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">AI Prototyping</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Product Management</span>
+                        <span class="tag">Project Management</span>
+                        <span class="tag">Client Communication</span>
+                        <span class="tag">Stakeholder Management</span>
+                        <span class="tag">Cross-functional Collab</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="tag">English (B2)</span>
+                        <span class="tag">Urdu (Native)</span>
+                        <span class="tag">Punjabi (Native)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-in">
+                <h3 style="color:white; margin-bottom:1.5rem; border-bottom:1px solid var(--border); padding-bottom:0.5rem;">Education</h3>
                 
-                <a href="https://huggingface.co/spaces/mirzaabdullaht/Bio" target="_blank" class="preview-card fade-in">
-                    <div class="card-icon"><i class="fas fa-dna"></i></div>
-                    <h3>The Bioverse Explorer</h3>
-                    <p>Interactive platform for visualizing space biology datasets through intuitive, AI-assisted exploration using Python.</p>
-                    <div class="link-indicator">View HuggingFace Space <i class="fas fa-external-link-alt"></i></div>
-                </a>
+                <div class="edu-item">
+                    <h4>Bachelor of Computer Science</h4>
+                    <span>Virtual University of Pakistan | 2022 – 2026</span>
+                </div>
 
-                <a href="https://lablab.ai/event/raise-your-hack/fresh-team-vultr-track/streamlead-turning-passive-viewers-active" target="_blank" class="preview-card fade-in">
-                    <div class="card-icon"><i class="fas fa-microphone-lines"></i></div>
-                    <h3>StreamLead AI</h3>
-                    <p>Turning passive viewers into active leads using real-time audio processing, LLMs, and RAG for context-aware responses.</p>
-                    <div class="link-indicator">View on LabLab.ai <i class="fas fa-external-link-alt"></i></div>
-                </a>
+                <div class="edu-item">
+                    <h4>Aspire Leaders Program</h4>
+                    <span>Aspire Institute | 2024</span>
+                </div>
 
-                <a href="https://devpost.com/software/sparktab" target="_blank" class="preview-card fade-in">
-                    <div class="card-icon"><i class="fab fa-chrome"></i></div>
-                    <h3>SparkTab Extension</h3>
-                    <p>Personalized Chrome extension delivering AI-generated daily goals and habit-building insights every new tab.</p>
-                    <div class="link-indicator">View on DevPost <i class="fas fa-external-link-alt"></i></div>
-                </a>
-
-                <a href="https://learning-buddy-nine.vercel.app/" target="_blank" class="preview-card fade-in">
-                    <div class="card-icon"><i class="fas fa-child-reaching"></i></div>
-                    <h3>LearnBuddy</h3>
-                    <p>Interactive AI learning tool designed to improve children’s grammar, spelling, and vocabulary.</p>
-                    <div class="link-indicator">View Vercel App <i class="fas fa-external-link-alt"></i></div>
-                </a>
-
+                <div class="edu-item">
+                    <h4>DAE Electrical</h4>
+                    <span>Govt. Swedish Pakistani College | 2016 – 2019</span>
+                </div>
             </div>
+
         </div>
     </section>
 
-    <section id="experience" style="background: rgba(0,0,0,0.2);">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Experience & Education</h2>
+    <footer>
+        <div class="container" style="text-align: center; color: var(--text-muted);">
+            <div style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+                <a href="https://www.linkedin.com/in/mirzaabdullaht" target="_blank" style="margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mirzaabdullaht" target="_blank" style="margin: 0 10px;"><i class="fab fa-github"></i></a>
+                <a href="mailto:mirzaabdullaht@outlook.com" style="margin: 0 10px;"><i class="fas fa-envelope"></i></a>
             </div>
-            <div class="grid-cards">
-                <div class="preview-card fade-in" style="pointer-events: none;">
-                    <h3 style="color:var(--primary)">Experience</h3>
-                    <ul style="color:var(--text-muted); list-style:none; margin-top:1rem;">
-                        <li style="margin-bottom:1rem;"><strong style="color:white; display:block;">Python Developer</strong> Buildables (2025)</li>
-                        <li style="margin-bottom:1rem;"><strong style="color:white; display:block;">Product Manager</strong> Bytewise Ltd (2024)</li>
-                        <li style="margin-bottom:1rem;"><strong style="color:white; display:block;">Account Executive</strong> Glowlogix (2023-24)</li>
-                    </ul>
-                </div>
-                <div class="preview-card fade-in" style="pointer-events: none;">
-                    <h3 style="color:var(--primary)">Education</h3>
-                    <ul style="color:var(--text-muted); list-style:none; margin-top:1rem;">
-                        <li style="margin-bottom:1rem;"><strong style="color:white; display:block;">BS Computer Science</strong> Virtual University of Pakistan (2026)</li>
-                        <li style="margin-bottom:1rem;"><strong style="color:white; display:block;">Aspire Leaders Program</strong> Aspire Institute (2024)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/mirzaabdullaht" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/mirzaabdullaht" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:mirzaabdullaht@outlook.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p style="margin-top:1.5rem;">Pakistan | +92 303 3310130</p>
-            <p style="opacity: 0.5;">&copy; 2026 Mirza Abdullah Tariq.</p>
+            <p>Pakistan | +92 303 3310130</p>
+            <p style="margin-top: 1rem; opacity: 0.6;">&copy; 2026 Mirza Abdullah Tariq. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Scroll Animation Logic
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        // Scroll Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Mobile Menu Toggle
+        // Mobile Menu
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
         mobileBtn.addEventListener('click', () => {
-            if (navLinks.style.display === 'flex') {
+            if(navLinks.style.display === 'flex') {
                 navLinks.style.display = 'none';
             } else {
                 navLinks.style.display = 'flex';
@@ -448,7 +553,7 @@
                 navLinks.style.top = '100%';
                 navLinks.style.left = '0';
                 navLinks.style.width = '100%';
-                navLinks.style.background = 'rgba(15, 23, 42, 0.98)';
+                navLinks.style.background = '#0f172a';
                 navLinks.style.padding = '2rem';
                 navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
             }
