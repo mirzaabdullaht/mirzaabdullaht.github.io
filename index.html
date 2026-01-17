@@ -3,117 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirza Abdullah Tariq | Portfolio</title>
+    <title>Mirza Abdullah Tariq | AI & IT Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
+            --primary: #2563eb;       /* Royal Blue */
+            --accent: #0ea5e9;        /* Sky Blue */
+            --dark: #0f172a;          /* Slate 900 */
+            --darker: #020617;        /* Slate 950 */
             --light: #f8fafc;
-            --gray: #64748b;
+            --text-gray: #94a3b8;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background: var(--light); color: var(--dark); line-height: 1.6; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        html { scroll-behavior: smooth; }
         
-        /* Layout */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 4rem 0; }
+        body { background: var(--darker); color: var(--light); line-height: 1.6; }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--primary); }
         
-        /* Header/Hero */
-        header { background: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
-        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--gray); font-weight: 500; transition: color 0.3s; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: 0.3s; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--primary); }
         
-        .hero { text-align: center; padding: 6rem 0 4rem; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--dark); }
-        .hero p { font-size: 1.25rem; color: var(--gray); max-width: 600px; margin: 0 auto 2rem; }
-        .btn { display: inline-block; padding: 0.8rem 1.5rem; background: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: background 0.2s; }
-        .btn:hover { background: #1d4ed8; }
+        .mobile-menu-btn { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* Sections */
-        h2 { font-size: 2rem; margin-bottom: 2rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        /* --- Hero Section --- */
+        .hero {
+            padding: 8rem 0 6rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            min-height: 90vh;
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, white, var(--text-gray)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-text h2 { font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; font-weight: 400; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-gray); max-width: 600px; margin-bottom: 2.5rem; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .hero-img-container { flex: 1; display: flex; justify-content: center; }
+        .hero-img { 
+            width: 350px; 
+            height: 350px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+            background-color: var(--dark); /* Fallback */
+        }
+
+        .btn-group { display: flex; gap: 1rem; }
+        .btn { padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); }
+        .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+        /* --- Common Section Styles --- */
+        section { padding: 5rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        .section-title { font-size: 2rem; margin-bottom: 3rem; color: white; display: flex; align-items: center; gap: 1rem; }
+        .section-title::after { content: ""; height: 1px; background: rgba(255,255,255,0.1); flex: 1; }
+
+        /* --- Awards / Highlights --- */
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .highlight-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .highlight-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .highlight-card i { color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem; }
+        .highlight-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: white; }
+        .highlight-card a { color: var(--accent); text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; }
+
+        /* --- Experience --- */
+        .timeline { position: relative; padding-left: 2rem; border-left: 2px solid rgba(255,255,255,0.1); }
+        .timeline-item { margin-bottom: 3rem; position: relative; }
+        .timeline-item::before {
+            content: ""; position: absolute; left: -2.6rem; top: 0.5rem; width: 1rem; height: 1rem;
+            background: var(--primary); border-radius: 50%; border: 4px solid var(--darker);
+        }
+        .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        .role { font-size: 1.25rem; font-weight: 700; color: white; }
+        .company { color: var(--primary); font-weight: 500; }
+        .date { font-size: 0.9rem; color: var(--text-gray); background: rgba(255,255,255,0.05); padding: 0.2rem 0.8rem; border-radius: 20px; }
+        .timeline-content ul { padding-left: 1.2rem; color: var(--text-gray); margin-top: 1rem; }
+
+        /* --- Projects --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .project-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .project-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
+        .folder-icon { color: var(--primary); font-size: 2rem; }
+        .project-links a { color: var(--text-gray); font-size: 1.2rem; margin-left: 1rem; transition: 0.2s; }
+        .project-links a:hover { color: white; }
+        .project-title { font-size: 1.25rem; color: white; margin-bottom: 0.8rem; font-weight: 700; }
+        .project-desc { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        .tech-stack { font-size: 0.85rem; color: var(--accent); font-family: monospace; }
+
+        /* --- Skills & Education --- */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .skill-tag { background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 500; }
         
-        .card { background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { margin-bottom: 0.5rem; color: var(--dark); }
-        .card .date { font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem; display: block; }
-        
-        /* Footer */
-        footer { background: var(--dark); color: white; text-align: center; padding: 2rem 0; margin-top: 4rem; }
-        footer p { opacity: 0.8; }
-        
+        .edu-item { background: var(--dark); padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.05); }
+
+        /* --- Footer --- */
+        footer { padding: 4rem 0; text-align: center; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        .social-icons { margin-bottom: 1.5rem; }
+        .social-icons a { color: white; font-size: 1.5rem; margin: 0 1rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary); }
+
+        /* --- Mobile --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; gap: 2rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-img { width: 250px; height: 250px; }
+            .btn-group { justify-content: center; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .timeline { padding-left: 1rem; border-left: none; }
+            .timeline-item::before { display: none; }
+            .timeline-header { flex-direction: column; gap: 0.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Mirza Abdullah Tariq</a>
-                <div class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#achievements">Achievements</a>
-                    <a href="#community">Community</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">Mirza<span>Abdullah</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#honors">Honors</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <header class="hero container" id="about">
+        <div class="hero-text">
+            <h2>IT & AI-Focused Professional</h2>
+            <h1>Mirza Abdullah Tariq</h1>
+            <p>I build scalable AI solutions and lead product execution. 1st Place Winner at TRAE AI IDE Hackathon (879 teams). Passionate about turning complex problems into user-centric products.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-img-container">
+            <img src="https://placehold.co/400x400/2563eb/white?text=MAT" alt="Mirza Abdullah Tariq" class="hero-img">
         </div>
     </header>
 
-    <section class="hero">
+    <section id="honors">
         <div class="container">
-            <h1>Building the Future with AI</h1>
-            <p>Computer Science Graduate | Founder of "Learn with Abdullah" | Winner of TRAE AI IDE Hackathon</p>
-            <a href="mailto:your-email@example.com" class="btn">Get in Touch</a>
-        </div>
-    </section>
-
-    <section id="about" class="container">
-        <h2>About Me</h2>
-        <p>I am a Computer Science graduate driven by a passion for Artificial Intelligence and community building. My journey involves not just learning technology, but teaching it. I actively research Generative AI and am preparing for international research opportunities in 2026.</p>
-    </section>
-
-    <section id="achievements" class="container">
-        <h2>Key Achievements</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🏆 1st Place - TRAE AI IDE Hackathon</h3>
-                <span class="date">October 2025</span>
-                <p>Led team "PathFinders" to secure the top spot out of 879 international teams in a 48-hour coding sprint.</p>
-            </div>
-            <div class="card">
-                <h3>📺 Media Appearances</h3>
-                <span class="date">2025</span>
-                <p>Invited guest speaker on PTV Home, HUM News, and Islam Channel (UK) to discuss technology and youth innovation.</p>
-            </div>
-            <div class="card">
-                <h3>🎓 NEAC HEC Trainer</h3>
-                <span class="date">2025</span>
-                <p>Served as a trainer for the Generative AI Training course, helping others master modern AI tools.</p>
+            <h2 class="section-title">Honors & Awards</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>1st Place — Trae AI IDE: Zero Limits Hackathon</h3>
+                    <p style="color:var(--text-gray); font-size:0.9rem; margin-bottom:1rem;">Top spot out of 879 global teams.</p>
+                    <a href="https://www.linkedin.com/posts/mirzaabdullaht_hackathon-ai-firstplace-activity-7350703428618072065-qQW6" target="_blank">View Award <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Featured on TV (PTV Home, etc.)</h3>
+                    <p style="color:var(--text-gray); font-size:0.9rem; margin-bottom:1rem;">Invited to discuss AI innovation on national television.</p>
+                    <a href="https://youtube.com/playlist?list=PLKOXcr0VPNXBsSq7qwXe0lNiixXYKYZgO&si=F9R2TWXwX4fP_7Uz" target="_blank">Watch Clips <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Silver Brick — Calico Fall ’24</h3>
+                    <p style="color:var(--text-gray); font-size:0.9rem; margin-bottom:1rem;">Top 25% Worldwide.</p>
+                    <a href="https://drive.google.com/file/d/1hkulEMshlQzC5H2k_RB6thfa5Imqxtb_/view" target="_blank">View Cert <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Top 10 Finalist — PakAngels</h3>
+                    <p style="color:var(--text-gray); font-size:0.9rem; margin-bottom:1rem;">Online Hackathon recognition.</p>
+                    <a href="https://www.linkedin.com/posts/mirzaabdullaht_hackathon-learningjourney-ai-activity-7369846275447545857-Lqgh" target="_blank">View details <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="community" class="container">
-        <h2>Community Leadership</h2>
-        <div class="card">
-            <h3>Learn with Abdullah 🚀</h3>
-            <p>I founded this community to create a space where students and professionals learn, innovate, and grow together. We focus on skill development and preparing for the future of tech.</p>
-        </div>
-    </section>
-
-    <footer>
+    <section id="experience">
         <div class="container">
-            <p>&copy; 2026 Mirza Abdullah Tariq. All rights reserved.</p>
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="role">Python Django Developer</div>
+                            <div class="company">Buildables (Remote)</div>
+                        </div>
+                        <span class="date">Aug 2025 – Nov 2025</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Built and maintained backend features using Django.</li>
+                            <li>Collaborated with engineers to deliver scalable web solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="role">Project & Product Manager</div>
+                            <div class="company">Bytewise Limited (Remote)</div>
+                        </div>
+                        <span class="date">Jun 2024 – Sep 2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Led product planning and execution across multiple development cycles.</li>
+                            <li>Coordinated roadmaps, timelines, and stakeholder communication.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="role">Account Executive</div>
+                            <div class="company">Glowlogix (NSTP NUST)</div>
+                        </div>
+                        <span class="date">Dec 2023 – Aug 2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Managed B2B client relationships across international markets.</li>
+                            <li>Supported revenue growth through client acquisition and retention.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="role">Customer Support Representative</div>
+                            <div class="company">SIT Digital Intl. (USA, Remote)</div>
+                        </div>
+                        <span class="date">Oct 2021 – May 2023</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Hackathons</h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://huggingface.co/spaces/mirzaabdullaht/Bio" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">The Bioverse Explorer</h3>
+                    <p class="project-desc">Interactive platform for visualizing space biology datasets through intuitive, AI-assisted exploration.</p>
+                    <div class="tech-stack">Oct 2025</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://lablab.ai/event/raise-your-hack/fresh-team-vultr-track/streamlead-turning-passive-viewers-active" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">StreamLead</h3>
+                    <p class="project-desc">AI-powered livestream engagement tool using real-time audio processing, LLMs, and RAG.</p>
+                    <div class="tech-stack">Jul 2025</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://lablab.ai/event/code-craft-ai-x-dev-hackathon/pathfinders/access-jobs-ai-powered-job-recommendation-system" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Access Jobs</h3>
+                    <p class="project-desc">AI-driven job matching platform leveraging resume parsing and skill extraction.</p>
+                    <div class="tech-stack">Jun 2025</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://devpost.com/software/sparktab" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">SparkTab</h3>
+                    <p class="project-desc">Personalized productivity extension delivering AI-generated daily goals and habit-building insights.</p>
+                    <div class="tech-stack">Nov 2024</div>
+                </div>
+
+                 <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://lablab.ai/event/replit-and-cursor-hackathon/flagship/flagglobe" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">FlagGlobe</h3>
+                    <p class="project-desc">Educational app offering instant country insights via names or flag emojis.</p>
+                    <div class="tech-stack">Oct 2024</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://learning-buddy-nine.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">LearnBuddy</h3>
+                    <p class="project-desc">Interactive AI learning tool designed to improve children’s grammar, spelling, and vocabulary.</p>
+                    <div class="tech-stack">Oct 2024</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="far fa-folder folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://lablab.ai/event/ai-agents-hack-with-lablab-and-mindsdb/code-warrior/ai-daily-productivity-planner/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">TalkTodo</h3>
+                    <p class="project-desc">AI-powered daily planner optimizing task prioritization, break scheduling, and time management.</p>
+                    <div class="tech-stack">Sep 2024</div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <i class="fab fa-youtube folder-icon"></i>
+                        <div class="project-links">
+                            <a href="https://www.youtube.com/watch?v=ODLacQAy4LA" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Product Label Automation</h3>
+                    <p class="project-desc">AI-based solution automating product label content, descriptions, and branding suggestions for SMEs.</p>
+                    <div class="tech-stack">Aug 2024</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Education</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                
+                <div>
+                    <h3 style="color:white; margin-bottom:1rem;">Technical & Professional</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">Python & Django</span>
+                        <span class="skill-tag">AI Prototyping</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Product Management</span>
+                        <span class="skill-tag">Stakeholder Comm</span>
+                        <span class="skill-tag">Cross-functional Collab</span>
+                    </div>
+                    
+                    <h3 style="color:white; margin-top:2rem; margin-bottom:1rem;">Languages</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">English (B2)</span>
+                        <span class="skill-tag">Urdu (Native)</span>
+                        <span class="skill-tag">Punjabi (Native)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="edu-item">
+                        <h4 style="color:white;">BS Computer Science</h4>
+                        <p style="color:var(--text-gray);">Virtual University of Pakistan (2022 – 2026)</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4 style="color:white;">Aspire Leaders Program</h4>
+                        <p style="color:var(--text-gray);">Aspire Institute (2024)</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4 style="color:white;">DAE Electrical</h4>
+                        <p style="color:var(--text-gray);">Govt. Swedish Pakistani College (2016 – 2019)</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/mirzaabdullaht" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mirzaabdullaht" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:mirzaabdullaht@outlook.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>Pakistan | +92 303 3310130</p>
+            <p style="margin-top: 1rem;">&copy; 2026 Mirza Abdullah Tariq. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile Menu Toggle (Simplified)
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileBtn.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'rgba(15, 23, 42, 0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
