@@ -12,68 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- Hero Collage Styles (Add this to your CSS) --- */
-        .hero-collage {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .collage-img {
-            position: absolute;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--bg-card);
-            transition: transform 0.3s ease;
-        }
-
-        .collage-img:hover { transform: scale(1.05); z-index: 10 !important; }
-
-        /* Main Profile Picture (Center) */
-        .main-pic {
-            width: 260px;
-            height: 260px;
-            z-index: 2;
-            box-shadow: 0 0 60px var(--primary-glow);
-        }
-
-        /* TV Appearance (Top Right) */
-        .highlight-pic-1 {
-            width: 150px;
-            height: 150px;
-            top: 0;
-            right: 0;
-            z-index: 1;
-            animation: float 6s ease-in-out infinite;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Award/Hackathon (Bottom Left) */
-        .highlight-pic-2 {
-            width: 130px;
-            height: 130px;
-            bottom: 10px;
-            left: 0;
-            z-index: 3;
-            animation: float 7s ease-in-out infinite reverse;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @media (max-width: 768px) {
-            .hero-collage { width: 320px; height: 320px; }
-            .main-pic { width: 200px; height: 200px; }
-            .highlight-pic-1 { width: 110px; height: 110px; }
-            .highlight-pic-2 { width: 100px; height: 100px; }
-        }
+        /* --- 1. Variables & Reset --- */
         :root {
             --primary: #3b82f6;       /* Blue */
             --primary-glow: rgba(59, 130, 246, 0.5);
@@ -90,28 +29,30 @@
         
         body { 
             background-color: var(--bg-dark);
-            /* Subtle mesh gradient background */
             background-image: 
                 radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
             color: var(--text-main); 
             font-family: 'Inter', sans-serif; 
             line-height: 1.6; 
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         h1, h2, h3, h4, h5 { font-family: 'Outfit', sans-serif; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
-        /* --- Animations --- */
+        /* --- 2. Animations --- */
         .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Layout --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
 
-        /* --- Nav --- */
+        /* --- 3. Navigation --- */
         nav {
             background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(16px);
@@ -121,6 +62,7 @@
             z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; }
         .logo span { color: var(--primary); }
@@ -129,25 +71,75 @@
         .nav-links a:hover { color: var(--primary); }
         .mobile-menu-btn { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* --- Hero --- */
-        .hero { padding: 8rem 0 6rem; display: flex; align-items: center; gap: 4rem; min-height: 85vh; }
-        .hero-text { flex: 1; }
+        /* --- 4. Hero Section & Collage --- */
+        .hero { 
+            padding: 6rem 0; 
+            min-height: 90vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 2rem; 
+        }
+        
+        .hero-text { flex: 1; max-width: 600px; }
         .tagline { display: inline-block; padding: 0.5rem 1rem; background: rgba(37, 99, 235, 0.1); color: var(--primary); border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid rgba(37, 99, 235, 0.3); }
         .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 650px; }
+        .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; }
         
-        .hero-img-container { flex: 1; display: flex; justify-content: center; position: relative; }
-        .hero-img { width: 350px; height: 350px; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-card); box-shadow: 0 0 50px var(--primary-glow); z-index: 2; }
-
         .btn { padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 20px -10px var(--primary); }
         .btn-outline { border: 1px solid var(--border); background: rgba(255,255,255,0.05); }
         .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
-        /* --- Social Timeline (Highlights) --- */
+        /* Floating Collage */
+        .hero-img-container { flex: 1; display: flex; justify-content: center; position: relative; }
+        .hero-collage {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collage-img {
+            position: absolute;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-dark); /* Matches bg to create cutout effect */
+            transition: transform 0.3s ease;
+        }
+        .collage-img:hover { transform: scale(1.05); z-index: 10 !important; }
+
+        /* Main Profile (Center) */
+        .main-pic {
+            width: 260px; height: 260px;
+            z-index: 2;
+            box-shadow: 0 0 60px var(--primary-glow);
+        }
+        /* TV Appearance (Top Right) */
+        .highlight-pic-1 {
+            width: 140px; height: 140px;
+            top: 0; right: 0;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        /* Award (Bottom Left) */
+        .highlight-pic-2 {
+            width: 120px; height: 120px;
+            bottom: 20px; left: 0;
+            z-index: 3;
+            animation: float 7s ease-in-out infinite reverse;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* --- 5. Shared Sections --- */
+        section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
         .section-title { font-size: 2.2rem; margin-bottom: 3rem; text-align: center; }
-        
+
+        /* --- 6. Timeline & Cards --- */
         .timeline-container { position: relative; max-width: 800px; margin: 0 auto; }
         .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), transparent); transform: translateX(-50%); }
         .year-badge { background: var(--primary); color: white; padding: 0.4rem 1.2rem; border-radius: 50px; font-weight: 700; position: relative; left: 50%; transform: translateX(-50%); display: inline-block; margin: 2rem 0; z-index: 2; }
@@ -161,7 +153,7 @@
         .social-body { font-size: 0.95rem; color: #e2e8f0; margin-bottom: 1rem; }
         .social-footer { border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; gap: 1rem; color: var(--text-muted); font-size: 0.85rem; }
 
-        /* --- Experience Timeline --- */
+        /* --- 7. Experience --- */
         .exp-grid { display: grid; gap: 2rem; max-width: 900px; margin: 0 auto; }
         .exp-item { background: rgba(30, 41, 59, 0.4); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 8px 8px 0; }
         .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem; }
@@ -169,10 +161,9 @@
         .exp-company { color: var(--primary); font-weight: 500; }
         .exp-date { font-size: 0.9rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 2px 10px; border-radius: 12px; }
         .exp-list { padding-left: 1.2rem; margin-top: 1rem; color: var(--text-muted); list-style-type: disc; }
-        .exp-list li { margin-bottom: 0.5rem; }
 
-        /* --- Projects Grid --- */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+        /* --- 8. Projects Grid --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
         .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; transition: 0.3s; height: 100%; }
         .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
@@ -183,7 +174,7 @@
         .project-desc { font-size: 0.9rem; color: var(--text-muted); flex-grow: 1; margin-bottom: 1rem; }
         .project-date { font-size: 0.8rem; color: var(--accent); font-family: monospace; }
 
-        /* --- Skills & Education --- */
+        /* --- 9. Skills & Footer --- */
         .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
         .skill-group { margin-bottom: 2rem; }
         .skill-group h3 { color: white; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
@@ -194,13 +185,21 @@
         .edu-item h4 { font-size: 1.1rem; color: white; margin-bottom: 0.2rem; }
         .edu-item span { display: block; color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- Mobile --- */
+        /* --- 10. Mobile Responsiveness --- */
         @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 6rem; gap: 2rem; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; gap: 3rem; }
+            .hero-text { max-width: 100%; }
             .hero-text h1 { font-size: 2.5rem; }
+            
+            .hero-collage { width: 320px; height: 320px; }
+            .main-pic { width: 200px; height: 200px; }
+            .highlight-pic-1 { width: 110px; height: 110px; }
+            .highlight-pic-2 { width: 100px; height: 100px; }
+
             .split-section { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
+            
             .timeline-line { left: 20px; }
             .year-badge { left: 20px; transform: none; }
             .social-card { margin-left: 2.5rem; width: calc(100% - 2.5rem); }
@@ -237,7 +236,9 @@
                 <a href="mailto:mirzaabdullaht@outlook.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
                 <a href="https://www.linkedin.com/in/mirzaabdullaht" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
-       <div class="hero-img-container fade-in">
+        </div>
+
+        <div class="hero-img-container fade-in">
             <div class="hero-collage">
                 <img src="tv.jpg" 
                      onerror="this.src='https://placehold.co/150x150/1e293b/FFF?text=TV'" 
@@ -563,7 +564,7 @@
                 <div class="project-card fade-in">
                     <div class="project-top">
                         <i class="fas fa-microphone folder-icon"></i>
-                        <div class="project-links"><a href="https://www.linkedin.com/posts/mirzaabdullaht_ai-hackathon-innovation-activity-7388153839234908160-f5gN?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC6-sWUBmQMRgUbM1tQ8BON-T4KRlr0626A" target="_blank"><i class="fab fa-twitter"></i></a></div>
+                        <div class="project-links"><a href="https://www.linkedin.com/posts/mirzaabdullaht_ai-hackathon-innovation-activity-7388153839234908160-f5gN" target="_blank"><i class="fab fa-twitter"></i></a></div>
                     </div>
                     <h3 class="project-title">Guest Speaker at LabLab.ai</h3>
                     <p class="project-desc">Invited as a speaker on an online X Space hosted by lablab.ai to discuss AI innovation.</p>
