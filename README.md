@@ -6,27 +6,9 @@
 
 A modern, responsive personal portfolio website showcasing my journey as an IT & AI-focused professional, global hackathon winner, and community leader. Built with a focus on **Glassmorphism UI**, smooth animations, and interactive content.
 
----
-
-## 🌟 Key Features
-
-* **🏆 Social Highlights Section:** A custom "LinkedIn-style" timeline showcasing major achievements (Hackathon wins, TV appearances) in a familiar card format.
-* **🎨 Modern UI/UX:** Features a "Dark Mode" aesthetic with mesh gradients and glassmorphism (frosted glass) effects.
-* **📱 Fully Responsive:** Optimized for all devices, from large desktop screens to mobile phones.
-* **🔗 Smart Link Previews:** Custom-built cards for projects that act as visual previews for external links (GitHub, DevPost, LabLab.ai).
-* **⚡ Lightweight:** Built with pure HTML, CSS, and vanilla JavaScript for maximum performance (no heavy frameworks).
 
 ---
 
-## 🛠️ Tech Stack
-
-* **HTML5:** Semantic structure.
-* **CSS3:** Custom variables, Flexbox/Grid layouts, Animations (`@keyframes`), and Media Queries.
-* **JavaScript:** Scroll intersection observers for "fade-in" animations and mobile menu logic.
-* **Font Awesome:** For iconography.
-* **Google Fonts:** Using 'Outfit' for headings and 'Inter' for body text.
-
----
 
 ## 📂 Portfolio Highlights
 
@@ -38,19 +20,6 @@ This website serves as a central hub for my work, including:
 
 ---
 
-## 🚀 How to Run Locally
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/mirzaabdullaht/mirzaabdullaht.github.io.git](https://github.com/mirzaabdullaht/mirzaabdullaht.github.io.git)
-    ```
-2.  **Navigate to the folder:**
-    ```bash
-    cd mirzaabdullaht.github.io
-    ```
-3.  **Open `index.html`** in your browser to view the site.
-
----
 
 ## 📫 Contact
 
